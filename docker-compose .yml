@@ -1,0 +1,20 @@
+version: '3'
+services:
+  backend:
+    image: sachin291/chatbot.ai:latest
+    ports:
+      - "5000:5000"
+    networks:
+      - chatbotnet
+
+  frontend:
+    image: sachin291/front_chatbot:latest
+    ports:
+      - "3000:3000"
+    networks:
+      - chatbotnet
+    depends_on:
+      - backend
+
+networks:
+  chatbotnet:
